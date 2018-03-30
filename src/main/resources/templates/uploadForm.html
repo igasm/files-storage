@@ -1,0 +1,71 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<nav>
+    <h1>File repository</h1>
+</nav>
+
+<div th:if="${message}">
+    <h2 th:text="${message}"/>
+</div>
+
+<div class="content">
+    <div>
+        <form method="POST" enctype="multipart/form-data" action="/">
+            <table>
+                <tr><td>File to upload:</td><td><input type="file" name="file" /></td></tr>
+                <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+            </table>
+        </form>
+    </div>
+
+    <div>
+        <ul>
+            <h3>List of files:</h3>
+            <li th:each="file : ${files}">
+                <a th:href="${file}" th:text="${file}" />
+            </li>
+        </ul>
+    </div>
+</div>
+
+
+<style>
+    body {
+        font-family: 'Myriad Pro', sans-serif;
+        margin: 0px;
+        margin-top: 0px;
+    }
+
+    nav {
+        background: #535179;
+        color: #D9E0F0;
+        position: sticky;
+        top:0;
+        height: 70px;
+        line-height: 70px;
+        vertical-align: middle;
+        margin: 0px;
+    }
+
+    nav h1{
+        margin: 0px;
+        margin-left: 10px;
+    }
+
+    .content {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .content div {
+        flex-grow: 1;
+        margin: 10px;
+        background: #d2d0e1;
+        padding: 10px;
+    }
+
+</style>
+
+</body>
+</html>
